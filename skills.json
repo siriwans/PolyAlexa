@@ -1,0 +1,49 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "cal poly slo",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "QuestionIntent",
+                    "slots": [
+                        {
+                            "name": "question",
+                            "type": "BAG_OF_WORDS"
+                        }
+                    ],
+                    "samples": [
+                        "{question}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "BAG_OF_WORDS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Hello World"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
