@@ -50,5 +50,12 @@ for line in data:
             has_sub_subsection = False
 
 
+sidebox_keys = [clean(x.text) for x in soup.table.find_all('th')]
+sidebox_vals = [clean(x.text) for x in soup.table.find_all('td')[1:-1]]
+sidebox = dict()
+for (key, val) in zip(sidebox_keys, sidebox_vals):
+    sidebox[key] = val
+json_obj['sidebox'] = sidebox
+
 with open('wikipedia.json','w') as jsonFile:
     json.dump(json_obj, jsonFile, indent='\t')
