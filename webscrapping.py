@@ -8,9 +8,13 @@ json_obj['Sections'] = []
 def clean(txt):
     return re.sub(r'\[.*\]', '', txt)
 
-response = requests.get(
+try:
+   response = requests.get(
 	url="https://en.wikipedia.org/wiki/California_Polytechnic_State_University",
-)
+   )
+except requests.ConnectionError:
+    exit()
+
 print(response.status_code)
 soup = BeautifulSoup(response.content, 'html.parser')
 
