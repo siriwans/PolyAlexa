@@ -1,6 +1,7 @@
 import json
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
+
 nlp = spacy.load('en_core_web_md')
 
 interrogative_words = ['what', 'who', 'which', 'whom', 'where', 'when', 'how', 'whose', 'why']
@@ -24,7 +25,7 @@ def get_answer(question_str):
     with question.retokenize() as retokenizer:
         retokenizer.merge(span)
   
-  tokens = [token for token in question if not nlp.vocab[token.text].is_stop] and not token.text == 'cal poly']
+  tokens = [token for token in question if not nlp.vocab[token.text].is_stop] and not token.text == 'cal poly'
   
   wh_word = [token.text for token in question if token.text.lower() in interrogative_words][0]
   
