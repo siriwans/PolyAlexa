@@ -1,1 +1,1 @@
-web: gunicorn lambda.lambda_function
+web: gunicorn lambda.wsgi
