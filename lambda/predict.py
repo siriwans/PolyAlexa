@@ -1,8 +1,10 @@
 import json
 import spacy
+import en_core_web_sm
 from spacy.lang.en.stop_words import STOP_WORDS
 
-nlp = spacy.load('en_core_web_md')
+#nlp = spacy.load('en_core_web_md')
+nlp = en_core_web_sm.load()
 
 interrogative_words = ['what', 'who', 'which', 'whom', 'where', 'when', 'how', 'whose', 'why']
 THRESHOLD = 0.8
