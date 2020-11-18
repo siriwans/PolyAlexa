@@ -1,18 +1,19 @@
-import json
+import json, os
 import spacy
 import en_core_web_sm
 from spacy.lang.en.stop_words import STOP_WORDS
 
-#nlp = spacy.load('en_core_web_md')
-nlp = en_core_web_sm.load()
+nlp = spacy.load('en_core_web_md')
+#nlp = en_core_web_sm.load()
 
 interrogative_words = ['what', 'who', 'which', 'whom', 'where', 'when', 'how', 'whose', 'why']
 THRESHOLD = 0.8
-
-with open('wikipedia.json') as f:
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'wikipedia.json')
+with open(path) as f:
   wiki = json.load(f)
 
 def get_answer(question_str):
+  print(question_str)
   question = nlp(question_str)
 
   spans = []
@@ -22,15 +23,15 @@ def get_answer(question_str):
       span = question[question[token.head.i].left_edge.i : question[token.head.i].i + 1]#.right_edge.i + 1]
       print(span)
       spans.append(span)
-  
+
   for span in spans:
     with question.retokenize() as retokenizer:
         retokenizer.merge(span)
-  
-  tokens = [token for token in question if not nlp.vocab[token.text].is_stop] and not token.text == 'cal poly'
-  
+
+  tokens = [token for token in question if not nlp.vocab[token.text].is_stop and not token.text == 'cal poly']
+
   wh_word = [token.text for token in question if token.text.lower() in interrogative_words][0]
-  
+
   return check_sidebox(tokens, wiki['sidebox'])
 
 def check_sidebox(keywords, sidebox):
