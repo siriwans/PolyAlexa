@@ -9,7 +9,7 @@ chardet==3.0.4
 click==7.1.2
 cryptography==3.2.1
 cymem==2.0.4
-en-core-web-md==2.3.1
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.3.1/en_core_web_md-2.3.1.tar.gz#egg=en_core_web_md
 Flask==1.1.2
 Flask-Ask==0.8.8
 gunicorn==20.0.4
