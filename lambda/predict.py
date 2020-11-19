@@ -14,6 +14,7 @@ with open(path) as f:
 
 def get_answer(question_str):
   print(question_str)
+  question_str = question_str.lower()
   question = nlp(question_str)
 
   spans = []
