@@ -15,7 +15,10 @@ def answer_question(question):
     # who is the president of cal poly
     answer = get_answer(question)
     print("ANSWER:", answer)
-    speech_text = 'Answer: ' + answer
+    if answer:
+        speech_text = 'Answer: ' + answer
+    else:
+        speech_text = 'I can\'t seem to find the answer'
     return statement(speech_text).simple_card('QuestionIntent', speech_text)
 
 
