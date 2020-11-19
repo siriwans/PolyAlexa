@@ -1,1 +1,1 @@
-web: python -m spacy download en_core_web_md && gunicorn lambda.wsgi
+web: gunicorn lambda.wsgi
