@@ -1,13 +1,13 @@
 import json, os
 import spacy
-#import en_core_web_md
+#import en_core_web_sm
 from spacy.lang.en.stop_words import STOP_WORDS
 
-nlp = spacy.load('en_core_web_md')
+nlp = spacy.load('en_core_web_sm')
 #nlp = en_core_web_md.load()
 
 interrogative_words = ['what', 'who', 'which', 'whom', 'where', 'when', 'how', 'whose', 'why']
-THRESHOLD = 0.8
+THRESHOLD = 0.5
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'wikipedia.json')
 with open(path) as f:
   wiki = json.load(f)

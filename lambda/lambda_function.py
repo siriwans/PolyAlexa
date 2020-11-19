@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from flask_ask import Ask, statement, question, session
+from flask import Flask
+from flask_ask import Ask, statement, question
 from .predict import *
 
 ASK_ROUTE = '/'
