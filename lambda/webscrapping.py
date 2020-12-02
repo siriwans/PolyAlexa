@@ -53,6 +53,7 @@ for line in data:
             sub_subsection["Information"] = sub_subsection["Information"] + text
             has_sub_subsection = False
 
+json_obj['Sections'][0]["Title"] = "Introduction"
 
 sidebox_keys = [clean(x.text) for x in soup.table.find_all('th')]
 sidebox_vals = [clean(x.text) for x in soup.table.find_all('td')[1:-1]]

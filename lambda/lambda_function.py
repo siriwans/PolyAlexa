@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_ask import Ask, statement, question
-from .predict import *
+from .predict1 import *
 
 ASK_ROUTE = '/'
 ask = Ask(route=ASK_ROUTE)
@@ -11,15 +11,16 @@ def launch():
     return question(speech_text).reprompt(speech_text).simple_card('LaunchIntent', speech_text)
 
 @ask.intent('QuestionIntent')
-def answer_question(question):
-    # who is the president of cal poly
-    answer = get_answer(question)
+def answer_question(ques):
+    # who is the president of cal pol
+    answer = get_answer(ques)
     print("ANSWER:", answer)
+    speech_text = ''
     if answer:
-        speech_text = 'Answer: ' + answer
+        speech_text = str(answer)
     else:
         speech_text = 'I can\'t seem to find the answer'
-    return statement(speech_text).simple_card('QuestionIntent', speech_text)
+    return question(speech_text).reprompt(speech_text).simple_card('QuestionIntent', speech_text)
 
 
 @ask.intent('AMAZON.HelpIntent')

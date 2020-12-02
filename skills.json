@@ -23,12 +23,12 @@
                     "name": "QuestionIntent",
                     "slots": [
                         {
-                            "name": "question",
+                            "name": "ques",
                             "type": "BAG_OF_WORDS"
                         }
                     ],
                     "samples": [
-                        "{question}"
+                        "{ques}"
                     ]
                 }
             ],
